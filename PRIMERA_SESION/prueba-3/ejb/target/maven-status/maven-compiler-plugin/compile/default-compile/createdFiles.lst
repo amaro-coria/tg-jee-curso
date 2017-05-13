@@ -1,0 +1,8 @@
+net/tecgurus/prueba_3/data/PruebaEJB.class
+net/tecgurus/prueba_3/model/Member.class
+net/tecgurus/prueba_3/data/PruebaNueva.class
+net/tecgurus/prueba_3/service/MemberRegistration.class
+net/tecgurus/prueba_3/data/MemberRepository.class
+net/tecgurus/prueba_3/data/MemberListProducer.class
+net/tecgurus/prueba_3/util/Resources.class
+net/tecgurus/prueba_3/data/impl/PruebaEJBImpl.class
