@@ -1,0 +1,11 @@
+net/tecgurus/prueba_3/data/PruebaEJB.class
+net/tecgurus/entidades/Movimientos_Cuenta.class
+net/tecgurus/dao/CatalogoGeneraDAO.class
+net/tecgurus/entidades/Cuentas_Cliente.class
+net/tecgurus/prueba_3/data/PruebaNueva.class
+net/tecgurus/entidades/Cliente.class
+net/tecgurus/entidades/Catalogo_General.class
+net/tecgurus/entidades/Cuenta.class
+net/tecgurus/dao/CatalogoGeneralDAOBean.class
+net/tecgurus/prueba_3/util/Resources.class
+net/tecgurus/prueba_3/data/impl/PruebaEJBImpl.class
