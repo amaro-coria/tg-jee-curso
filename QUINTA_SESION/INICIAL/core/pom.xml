@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.tecgurus</groupId>
+	<artifactId>core</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>core</name>
+	<description>core</description>
+	<repositories>
+		<repository>
+			<id>jboss-public-repository</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+			<!-- These optional flags are designed to speed up your builds by reducing 
+				remote server calls -->
+			<releases>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>java.net.m2</id>
+			<name>java.net m2 repo</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+
+	<modules>
+		<module>../core-common</module>
+		<module>../core-persistence</module>
+		<module>../core-ejb</module>
+		<module>../core-web</module>
+		<module>../core-ear</module>
+	</modules>
+	
+	<properties>
+		<!-- Explicitly declaring the source encoding eliminates the following 
+			message: -->
+		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
+			resources, i.e. build is platform dependent! -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- JBoss dependency versions -->
+
+		<version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+
+		<version.jboss.as>7.1.1.Final</version.jboss.as>
+
+		<version.jboss.spec.javaee.6.0>3.0.2.Final</version.jboss.spec.javaee.6.0>
+
+		<!-- other plugin versions -->
+		<version.ear.plugin>2.8</version.ear.plugin>
+		<version.ejb.plugin>2.3</version.ejb.plugin>
+		<version.war.plugin>2.1.1</version.war.plugin>
+
+		<!-- maven-compiler-plugin -->
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<!-- logback version -->
+		<logback.version>1.0.9</logback.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+		
+			<dependency>
+				<groupId>net.tecgurus</groupId>
+				<artifactId>core-common</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>net.tecgurus</groupId>
+				<artifactId>core-persistence</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>ejb</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>net.tecgurus</groupId>
+				<artifactId>core-ejb</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>ejb</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>net.tecgurus</groupId>
+				<artifactId>core-web</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>war</type>
+				<scope>compile</scope>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.jboss.spec</groupId>
+				<artifactId>jboss-javaee-6.0</artifactId>
+				<version>${version.jboss.spec.javaee.6.0}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<!-- The JBoss AS plugin deploys your ear to a local JBoss EAP container -->
+			<!-- Due to Maven's lack of intelligence with EARs we need to configure 
+				the jboss-as maven plugin to skip deployment for all modules. We then enable 
+				it specifically in the ear module. -->
+			<plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<version>${version.jboss.maven.plugin}</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources></resources>
+	</build>
+</project>

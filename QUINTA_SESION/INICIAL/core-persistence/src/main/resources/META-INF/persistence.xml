@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+	http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="core-persistence">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/MySqlDS</jta-data-source>
+		<class>net.tecgurus.entities.CatalogoGeneral</class>
+		<class>net.tecgurus.entities.Cliente</class>
+		<class>net.tecgurus.entities.Cuenta</class>
+		<class>net.tecgurus.entities.CuentasCliente</class>
+		<class>net.tecgurus.entities.MovimientosCuenta</class>
+		<class>net.tecgurus.entities.Role</class>
+		<class>net.tecgurus.entities.RolePK</class>
+		<class>net.tecgurus.entities.Usuario</class>
+		<!-- <class>net.tecgurus.entities.UsuariosRole</class>-->
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- Inicio de nuevo esquema -->
+			<!-- Fin de nuevo esquema -->
+			<property name="hibernate.jdbc.batch_size" value="100" />
+			<property name="order_inserts" value="true" />
+			<!-- Cache Segundo nivel -->
+			<property name="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE" />
+		</properties>
+	</persistence-unit>
+</persistence>

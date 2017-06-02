@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+	<application>
+        <locale-config>
+            <default-locale>es</default-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>net.tecgurus.messages</base-name>
+            <var>msg</var>
+        </resource-bundle>
+	</application>
+
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>out_catalogos</from-outcome>
+			<to-view-id>/pages/catalogo.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>out_clientes</from-outcome>
+			<to-view-id>/pages/clientes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>
