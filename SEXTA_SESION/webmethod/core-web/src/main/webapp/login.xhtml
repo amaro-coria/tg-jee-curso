@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="/WEB-INF/templates/template_login.xhtml">
+	<ui:define name="content">
+		<body>
+		
+			<form method="post" action="j_security_check">
+				<table columns="2" role="presentation">
+					<tr>
+						<td><h:outputLabel for="j_username"
+								value="Nombre de usuario:" /></td>
+						<td><h:inputText id="j_username" autocomplete="off" size="20" /></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel for="j_password"
+								value="Clave de acceso:" /></td>
+						<td><h:inputSecret id="j_password" autocomplete="off"
+								size="20" /></td>
+					</tr>
+				</table>
+				<p>
+					<h:commandButton type="submit" value="Enviar" />
+					&nbsp;
+					<h:commandButton type="reset" value="Borrar" />
+				</p>
+			</form>
+			
+		</body>
+	</ui:define>
+</ui:composition>
+</html>
